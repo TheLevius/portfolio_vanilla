@@ -6,6 +6,9 @@ import "./hero/hero.scss";
 import "./section/section.scss";
 import "./card/card.scss";
 import "./features/features.scss";
+import "./socials/socials.scss";
+import "./form/form.scss";
+
 // import { setupCounter } from "./counter.js";
 
 // document.querySelector('#app').innerHTML = `

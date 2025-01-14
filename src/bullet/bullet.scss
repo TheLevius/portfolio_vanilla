@@ -3,11 +3,13 @@
 	z-index: 10;
 	margin: 0;
 	padding: 6px 0;
+	text-align: left;
 	font-size: 16px;
 	line-height: 1.5;
 	font-weight: 700;
 	text-indent: 10px;
 	letter-spacing: 0.2px;
+
 	&::before {
 		content: "";
 		position: absolute;
@@ -22,6 +24,7 @@
 	}
 	&--center {
 		text-indent: 0;
+		text-align: center;
 		&::before {
 			right: 0;
 			margin: 0 auto;

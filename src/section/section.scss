@@ -1,10 +1,11 @@
 .section {
 	display: flex;
 	flex-direction: column;
-	margin: 0 8px;
+	align-items: center;
+	margin: 0 8px 40px;
 	line-height: 1.5;
 	&__item {
-		margin: 40px auto 20px;
+		margin: 0 0 20px;
 	}
 	&__header {
 		margin: 0;
@@ -14,16 +15,23 @@
 
 	&__sep {
 		display: block;
-		margin: 12px auto 20px;
+		margin: 12px 0 20px;
 		outline: 0;
 		border: 0;
 		width: 60px;
 		height: 3px;
 		background-color: var(--color-accent-background);
-		
+	}
+	&__text {
+		margin: 10px 0;
+		font-size: 14px;
+		font-weight: 700;
 	}
 	&__content {
 		margin: 0 auto;
-
 	}
+	&--left {
+			align-items: flex-start;
+			text-align: left;
+		}
 }

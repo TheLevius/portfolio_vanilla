@@ -1,0 +1,15 @@
+.socials {
+	display: flex;
+	align-items: center;
+	margin: 10px 0;
+	// width: 100%;
+	gap: 20px;
+
+	&__item {
+		aspect-ratio: 1/1;
+	}
+
+	&--center {
+		justify-content: center;
+	}
+}
