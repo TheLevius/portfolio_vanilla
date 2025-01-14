@@ -20,4 +20,12 @@
 		transform: translateZ(0);
 		z-index: -1;
 	}
+	&--center {
+		text-indent: 0;
+		&::before {
+			right: 0;
+			margin: 0 auto;
+		}
+
+	}
 }

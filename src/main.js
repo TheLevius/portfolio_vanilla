@@ -3,7 +3,10 @@ import "./style.css";
 import "./button/button.scss";
 import "./bullet/bullet.scss";
 import "./hero/hero.scss";
-import { setupCounter } from "./counter.js";
+import "./section/section.scss";
+import "./card/card.scss";
+import "./features/features.scss";
+// import { setupCounter } from "./counter.js";
 
 // document.querySelector('#app').innerHTML = `
 //   <div>
