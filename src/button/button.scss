@@ -1,0 +1,27 @@
+.button {
+	border: 1px solid transparent;
+	width: 135px;
+	height: 45px;
+	font-size: 14px;
+	line-height: 21px;
+	font-weight: 700;
+	color: var(--color-text-primary);
+	background-color: var(--color-background);
+	cursor: pointer;
+	transition: border-color 0.3s;
+	
+	&--primary {
+		background-color: var(--color-accent-background);
+	}
+	&--transparent {
+		background-color: transparent;
+	}
+}
+
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}

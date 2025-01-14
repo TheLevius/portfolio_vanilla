@@ -1,0 +1,23 @@
+.bullet {
+	position: relative;
+	z-index: 10;
+	margin: 0;
+	padding: 6px 0;
+	font-size: 16px;
+	line-height: 1.5;
+	font-weight: 700;
+	text-indent: 10px;
+	letter-spacing: 0.2px;
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 36px;
+		height: 36px;
+		border-radius: 50%;
+		background-color: var(--color-accent-background);
+		transform: translateZ(0);
+		z-index: -1;
+	}
+}
