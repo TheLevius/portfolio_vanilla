@@ -7,6 +7,12 @@
 	--color-text-status-error: rgba(189, 0, 0, 0.8);
 	--color-text-status-ok: rgba(0, 189, 0, 0.8);
 
+	--color-link: var(--color-text-primary);
+	--color-link-visited: rgba(0, 0, 0 , 0.2);
+	--color-link-active: rgba(0, 0, 0, 0.3);
+	--color-link-focus: rgba(0, 0, 0, 0.8);
+	--color-link-hover: rgba(0, 0, 0, 0.7);
+
   font-family: Poppins, system-ui, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 500;

@@ -2,11 +2,24 @@
 	display: flex;
 	align-items: center;
 	margin: 10px 0;
-	// width: 100%;
 	gap: 20px;
+	line-height: 0;
 
-	&__item {
-		aspect-ratio: 1/1;
+	a.socials__item {
+		color: var(--color-link);
+		
+		&:hover {
+			color: var(--color-link-hover);
+		}
+		&:active {
+			color: var(--color-link-active);
+		}
+		&:focus {
+			color: var(--color-link-focus);
+		}
+		&:visited {
+			color: var(--color-link-visited);
+		}
 	}
 
 	&--center {
