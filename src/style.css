@@ -4,15 +4,16 @@
   --color-accent-background: #FFA501;
   --color-accent-text: #FFFFFF;
   --color-overlay: rgba(255, 255, 255, 0.75);
-	
+	--color-text-status-error: rgba(189, 0, 0, 0.8);
+	--color-text-status-ok: rgba(0, 189, 0, 0.8);
 
   font-family: Poppins, system-ui, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 500;
 
   /* color-scheme: light dark; */
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* color: rgba(255, 255, 255, 0.87); */
+  /* background-color: #242424; */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

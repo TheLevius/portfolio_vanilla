@@ -8,25 +8,52 @@ import "./card/card.scss";
 import "./features/features.scss";
 import "./socials/socials.scss";
 import "./form/form.scss";
+import { Validator } from "./form/form";
+(() => {
+	const feedbackForm = document.getElementById("feedback-form");
+	const formCheckIds = new Map([
+		["feedback-name", "name"],
+		["feedback-email", "email"],
+		["feedback-message", "message"],
+	]);
+	const formIds = Array.from(formCheckIds.keys());
 
-// import { setupCounter } from "./counter.js";
+	const feedbackValidator = new Validator();
+	const handleForm = (e) => {
+		e.stopPropagation();
+		e.preventDefault();
+		const validationResult = formIds.every(
+			(id) => feedbackValidator.validate(id, formCheckIds.get(id)) === "OK"
+		);
 
-// document.querySelector('#app').innerHTML = `
-//   <div>
-//     <a href="https://vite.dev" target="_blank">
-//       <img src="${viteLogo}" class="logo" alt="Vite logo" />
-//     </a>
-//     <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-//       <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-//     </a>
-//     <h1>Hello Vite!</h1>
-//     <div class="card">
-//       <button id="counter" type="button"></button>
-//     </div>
-//     <p class="read-the-docs">
-//       Click on the Vite logo to learn more
-//     </p>
-//   </div>
-// `;
+		if (validationResult) {
+			console.info("Валидация формы прошла успешно");
+			sendJSON(feedbackForm, formIds);
+		} else {
+			console.info("Ошибка валидации формы");
+		}
+	};
+	feedbackForm.addEventListener("submit", handleForm);
+})();
 
-// setupCounter(document.querySelector('#counter'));
+async function sendJSON(formNode, ids) {
+	const formData = new FormData(formNode);
+	const data = {};
+	formData.forEach((value, key) => {
+		data[key] = value;
+	});
+
+	const response = await fetch("https://jsonplaceholder.typicode.com", {
+		method: "POST",
+		headers: { "Content-Type": "application/json" },
+		body: JSON.stringify(data),
+	}).catch(console.error);
+
+	if (response.ok) {
+		console.log("Запрос отправлен успешно!");
+		ids.forEach((id) => {
+			const node = formNode.getElementById(id);
+			console.log(node.textContent);
+		});
+	}
+}

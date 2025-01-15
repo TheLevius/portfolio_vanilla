@@ -4,13 +4,37 @@
 	flex-direction: column;
 	align-items: center;
 	&__item {
+		position: relative;
+		z-index: 1;
 		width: 100%;
 		box-sizing: border-box;
 		margin: 10px 0;
 		padding: 12px 10px;
-		overflow: hidden;
+		border: 1px solid rgba(0, 0, 0, 1);
+		&:focus-within {
+			border: 1px solid rgba(0, 0, 0, 0.5);
+		}
 	}
-	
+	&__status {
+		position: absolute;
+		z-index: 10;
+		top: 100%;
+		left: 0;
+		display: none;
+		padding: 0;
+		font-size: 12px;
+		line-height: 1.5;
+		text-align: left;
+		white-space: nowrap;
+	}
+	&--error {
+		display: inline-block;
+		color: var(--color-text-status-error);
+	}
+	&--ok {
+		display: inline-block;
+		color: var(--color-text-status-ok);
+	}
 	&__legend {
 		margin-bottom: -12px;
 		padding: 0 8px;
