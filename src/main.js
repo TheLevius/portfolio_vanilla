@@ -43,17 +43,16 @@ async function sendJSON(formNode, ids) {
 		data[key] = value;
 	});
 
-	const response = await fetch("https://jsonplaceholder.typicode.com", {
+	const response = await fetch("http://localhost:3000/feedback", {
 		method: "POST",
 		headers: { "Content-Type": "application/json" },
 		body: JSON.stringify(data),
 	}).catch(console.error);
 
 	if (response.ok) {
-		console.log("Запрос отправлен успешно!");
 		ids.forEach((id) => {
-			const node = formNode.getElementById(id);
-			console.log(node.textContent);
+			const node = formNode.querySelector(`#${id}`);
+			node.value = "";
 		});
 	}
 }
