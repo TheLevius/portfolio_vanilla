@@ -9,6 +9,7 @@ import "./features/features.scss";
 import "./socials/socials.scss";
 import "./form/form.scss";
 import { Validator } from "./form/form";
+import { getBaseUrl } from "./base-url";
 (() => {
 	const feedbackForm = document.getElementById("feedback-form");
 	const formCheckIds = new Map([
@@ -42,8 +43,8 @@ async function sendJSON(formNode, ids) {
 	formData.forEach((value, key) => {
 		data[key] = value;
 	});
-
-	const response = await fetch("http://localhost:3000/feedback", {
+	const baseUrl = getBaseUrl();
+	const response = await fetch(`${baseUrl}/api/feedback`, {
 		method: "POST",
 		headers: { "Content-Type": "application/json" },
 		body: JSON.stringify(data),

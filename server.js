@@ -6,7 +6,12 @@ import { cors } from "@elysiajs/cors";
 import { fileURLToPath } from "url";
 
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
-const port = Number(process.env.PORT);
+const port = process.env.PORT || "3000";
+const baseUrl =
+	process.env.NODE_ENV === "production"
+		? process.env.BASE_URL
+		: `${process.env.BASE_URL}:${port}`;
+
 const transporter = nodemailer.createTransport({
 	service: "gmail",
 	auth: {
@@ -47,6 +52,6 @@ app.post("/feedback", async (ctx) => ctx.body, {
 	// 		});
 });
 
-app.listen(port, () => {
+app.listen(Number(port), () => {
 	console.log(`server listen on port ${port}`);
 });
