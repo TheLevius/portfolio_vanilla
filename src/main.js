@@ -8,42 +8,65 @@ import "./card/card.scss";
 import "./features/features.scss";
 import "./socials/socials.scss";
 import "./form/form.scss";
-import { Validator } from "./form/form";
 import { getBaseUrl } from "./base-url";
+import {
+	nameValidator,
+	emailValidator,
+	messageValidator,
+	agreeValidator,
+} from "./form/validators";
 (() => {
 	const feedbackForm = document.getElementById("feedback-form");
-	const formCheckIds = new Map([
-		["feedback-name", "name"],
-		["feedback-email", "email"],
-		["feedback-message", "message"],
-	]);
-	const formIds = Array.from(formCheckIds.keys());
 
-	const feedbackValidator = new Validator();
 	const handleForm = (e) => {
 		e.stopPropagation();
 		e.preventDefault();
-		const validationResult = formIds.every(
-			(id) => feedbackValidator.validate(id, formCheckIds.get(id)) === "OK"
-		);
+		const formNode = e.target;
+		const statusNodeSelector = ".form__status";
+		const modifier = {
+			statusError: "form--error",
+		};
 
-		if (validationResult) {
+		const checkers = new Map([
+			["feedback-name", { validate: nameValidator, name: "name" }],
+			["feedback-email", { validate: emailValidator, name: "email" }],
+			["feedback-message", { validate: messageValidator, name: "message" }],
+			["feedback-agree", { validate: agreeValidator, name: "agree" }],
+		]);
+
+		let errorCount = 0;
+		checkers.forEach((value, id) => {
+			const element = formNode.elements[id];
+			const result = value.validate(element);
+			if (result !== "OK") {
+				errorCount += 1;
+			}
+			const renderNode = element.parentNode.querySelector(statusNodeSelector);
+			render(renderNode, result, modifier);
+		});
+
+		if (errorCount === 0) {
 			console.info("Валидация формы прошла успешно");
-			sendJSON(feedbackForm, formIds);
+			const dataNames = ["name", "email", "message"];
+
+			sendJSON(formNode, dataNames);
 		} else {
 			console.info("Ошибка валидации формы");
 		}
 	};
+
 	feedbackForm.addEventListener("submit", handleForm);
 })();
 
-async function sendJSON(formNode, ids) {
+async function sendJSON(formNode, dataNames) {
 	const formData = new FormData(formNode);
-	const data = {};
-	formData.forEach((value, key) => {
-		data[key] = value;
-	});
+	const data = dataNames.reduce((data, name) => {
+		data[name] = formData.get(name);
+		return data;
+	}, {});
+
 	const baseUrl = getBaseUrl();
+
 	const response = await fetch(`${baseUrl}/api/feedback`, {
 		method: "POST",
 		headers: { "Content-Type": "application/json" },
@@ -51,9 +74,21 @@ async function sendJSON(formNode, ids) {
 	}).catch(console.error);
 
 	if (response.ok) {
-		ids.forEach((id) => {
-			const node = formNode.querySelector(`#${id}`);
-			node.value = "";
-		});
+		formNode.reset();
 	}
+}
+
+function render(renderNode, result, { statusError }) {
+	const containsStatus = renderNode.classList.contains(statusError);
+
+	if (result !== "OK" && !containsStatus) {
+		renderNode.textContent = result;
+		renderNode.classList.add(statusError);
+	} else if (result !== "OK" && containsStatus) {
+		renderNode.textContent = result;
+	} else if (result === "OK" && containsStatus) {
+		renderNode.textContent = "";
+		renderNode.classList.remove(statusError);
+	}
+	return result;
 }
