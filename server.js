@@ -28,7 +28,7 @@ const app = new Elysia().use(cors()).use(
 );
 
 app.get("/", () => Bun.file(join(__dirname, "dist", "index.html")));
-app.post("/feedback", async (ctx) => ctx.body, {
+app.post("/api/feedback", async (ctx) => ctx.body, {
 	body: t.Object({
 		name: t.String({
 			minLength: 2,
