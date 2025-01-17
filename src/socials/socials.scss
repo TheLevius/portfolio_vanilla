@@ -1,10 +1,20 @@
 .socials {
 	display: flex;
 	align-items: center;
-	margin: 10px 0;
-	gap: 20px;
+	align-self: stretch;
 	line-height: 0;
 
+	&__icon {
+		width: 100%;
+		height: auto;
+		&--w_20 {
+			width: 20px;
+		}
+		&--w_30 {
+			width: 30px;
+		}
+	}
+	
 	a.socials__item {
 		color: var(--color-link);
 		
@@ -21,8 +31,18 @@
 			color: var(--color-link-visited);
 		}
 	}
-
+	&--mv_10 {
+		margin: 10px 0;
+	}
+	&--gap_20 {
+		gap: 20px;
+	}
+	&--gap_16 {
+		gap: 16px;
+	}
+	
 	&--center {
 		justify-content: center;
 	}
+	
 }

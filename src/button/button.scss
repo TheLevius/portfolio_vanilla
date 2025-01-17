@@ -10,19 +10,27 @@
 	background-color: var(--color-background);
 	cursor: pointer;
 	transition: border-color 0.3s;
+	&:hover {
+		border-color: var(--color-link-hover);
+	}
 	
 	&--primary {
 		background-color: var(--color-accent-background);
 	}
 	&--transparent {
 		background-color: transparent;
+		&:hover {
+			border-color: var(--color-link-hover);
+		}
 	}
 }
 
 button:hover {
-  border-color: #646cff;
+  border-color: var(--color-link-hover);
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+	border-color: var(--color-link-focus);
+	border-color: var(--color-link-active);
 }
