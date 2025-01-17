@@ -1,5 +1,7 @@
 import "normalize.css";
 import "./style.css";
+import "./menu/menu.scss";
+import "./burger/burger.scss";
 import "./button/button.scss";
 import "./bullet/bullet.scss";
 import "./hero/hero.scss";

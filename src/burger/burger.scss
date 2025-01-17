@@ -1,0 +1,40 @@
+.burger {
+	all: unset;
+	position: absolute;
+	top: 12px;
+	right: 12px;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	padding: 8px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+	&:hover {
+		background-color: rgba(0, 0, 0, 0.1);
+	}
+	&__icon {
+		display: block;
+		width: 36px;
+		height: 21px;
+		fill: var(--color-text-primary);
+	}
+}
+.closer {
+	all: unset;
+	align-self: flex-end;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	padding: 8px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+	&:hover {
+		background-color: rgba(0, 0, 0, 0.1);
+	}
+	&__icon {
+		display: block;
+		width: 29px;
+		height: 29px;
+		fill: var(--color-text-primary);
+	}
+}
