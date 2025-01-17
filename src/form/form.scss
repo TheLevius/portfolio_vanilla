@@ -79,17 +79,33 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		margin: 10px 0;
+		margin: 10px;
 		gap: 8px;
 	}
 	&__checkbox {
 		
 	}
 	&__caption {
-		max-width: 159px;
+		max-width: 160px;
 		font-size: 12px;
 		line-height: 1.5;
 		letter-spacing: -0.1px;
+	}
+	&__link {
+		display: inline;
+		color: #2306D6;
+		&:active {
+			color: rgba(189, 0, 0, 0.8);
+		}
+		&:focus {
+			color: rgba(189, 0, 0, 0.6);
+		}
+		&:hover {
+			color: rgba(189, 0, 0, 0.6);
+		}
+		&:visited {
+			color: rgb(66, 5, 101);
+		}
 	}
 	&__button {
 
@@ -104,16 +120,42 @@
 	}
 	@media (min-width: 641px) {
 		flex-direction: row;
+		justify-content: space-between;
 		flex-wrap: wrap;
+
 		&__item {
 			&--rm_25 {
-			margin-right: 25px;
+				margin-right: 25px;
+			}
 		}
+		&__checkbox-group {
+			&--order_1 {
+				order: 1;
+			}
+		}
+		&__caption {
+			max-width: none;
+			
+			br {
+				display: none;
+			}
 		}
 	}
 	@media (min-width: 769px) {
 	}
 	@media (min-width: 961px) {
-		
+		// flex-direction: column;
+		// &__item {
+		// 	&--rm_25 {
+		// 	margin-right: 0;;
+		// }
+		// }
+	}
+	@media (min-width: 1280px) {
+		&__checkbox-group {
+			&--order_1 {
+				order: 0;
+			}
+		}
 	}
 }

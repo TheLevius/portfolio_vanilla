@@ -32,6 +32,23 @@
 	&__content {
 		margin: 0 auto;
 	}
+	&__contacts {
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+
+	}
+	&__photo {
+		display: none;
+		margin-right: 68px;
+		max-width: 400px;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+	&__con {
+		flex: 1;
+	}
 	&__aside-bar {
 		position: absolute;
 		top: 72%;
@@ -97,8 +114,20 @@
 		&__aside-bar {
 			display: flex;
 		}
+		
 		&--wallpaper_hero {
 			background-position: center 22.5%;
+		}
+	}
+	@media (min-width: 1280px) {
+		&__contacts {
+			flex-direction: row;
+		}
+		&__photo {
+			flex: 0 0 400px;
+
+			display: block;
+			background-image: url('img/feedback-bg-sm.webp');
 		}
 	}
 }
