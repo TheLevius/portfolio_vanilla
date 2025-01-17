@@ -18,6 +18,12 @@
 		textarea {
 			resize: vertical;
 		}
+		&--flexible {
+			flex-grow: 1;
+			flex-shrink: 1;
+			flex-basis: 0;
+		}
+		
 	}
 	&__status {
 		position: absolute;
@@ -91,5 +97,23 @@
 	&--vm-10 {
 		margin-top: 10px;
 		margin-bottom: 10px;
+	}
+
+	@media (min-width: 481px) {
+
+	}
+	@media (min-width: 641px) {
+		flex-direction: row;
+		flex-wrap: wrap;
+		&__item {
+			&--rm_25 {
+			margin-right: 25px;
+		}
+		}
+	}
+	@media (min-width: 769px) {
+	}
+	@media (min-width: 961px) {
+		
 	}
 }
