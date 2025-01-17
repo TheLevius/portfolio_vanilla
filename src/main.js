@@ -19,6 +19,23 @@ import {
 	agreeValidator,
 } from "./form/validators";
 (() => {
+	function toggleMenu() {
+		const menuContainer = document.querySelector("#menu");
+		const overlay = document.querySelector("#overlay");
+		menuContainer.classList.toggle("menu--active");
+		overlay.classList.toggle("overlay--active");
+	}
+
+	function closeMenu() {
+		const menuContainer = document.querySelector("#menu");
+		const overlay = document.querySelector("#overlay");
+		menuContainer.classList.remove("menu--active");
+		overlay.classList.remove("overlay--active");
+	}
+	document.getElementById("burger").addEventListener("click", toggleMenu);
+	document.getElementById("closer").addEventListener("click", closeMenu);
+	document.getElementById("overlay").addEventListener("click", closeMenu);
+
 	const feedbackForm = document.getElementById("feedback-form");
 
 	const handleForm = (e) => {
