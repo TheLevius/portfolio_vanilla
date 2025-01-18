@@ -1,56 +1,49 @@
 import { Elysia, t } from "elysia";
-import nodemailer from "nodemailer";
-import { join } from "path";
+import { dirname, join } from "path";
 import { staticPlugin } from "@elysiajs/static";
 import { cors } from "@elysiajs/cors";
-import { fileURLToPath } from "url";
 
-const __dirname = fileURLToPath(new URL(".", import.meta.url));
 const port = process.env.PORT || "3000";
-const baseUrl =
-	process.env.NODE_ENV === "production"
-		? process.env.BASE_URL
-		: `${process.env.BASE_URL}:${port}`;
-
-const transporter = nodemailer.createTransport({
-	service: "gmail",
-	auth: {
-		user: process.env.EMAIL_USER,
-		pass: process.env.EMAIL_PASS,
-	},
-});
-
-const app = new Elysia().use(cors()).use(
+const projectRoot = dirname(Bun.main);
+const staticRoot = join(projectRoot, "dist");
+const app = new Elysia();
+app.use(cors());
+app.use(
 	staticPlugin({
 		prefix: "/",
-		assets: join(__dirname, "dist"),
+		assets: staticRoot,
 	})
 );
-
-app.get("/", () => Bun.file(join(__dirname, "dist", "index.html")));
-app.post("/api/feedback", async (ctx) => ctx.body, {
-	body: t.Object({
-		name: t.String({
-			minLength: 2,
-			maxLength: 50,
+const apiController = (app) => {
+	app.post(
+		"/feedback",
+		async (ctx) => ({
+			success: true,
+			message: "Валидация прошла успешно, данные приняты",
+			data: ctx.body,
 		}),
-		email: t.String({
-			minLength: 6,
-			maxLength: 320,
-			format: "email",
-		}),
-		message: t.String({
-			minLength: 10,
-			maxLength: 500,
-		}),
-	}),
-	// 		await transporter.sendMail({
-	// 			from: `"Website Contact" <${process.env.EMAIL_USER}>`,
-	// 			to: process.env.EMAIL_USER,
-	// 			subject: `New message from ${name}`,
-	// 			text: `You received a new message from ${name} (${email}):\n\n${message}`,
-	// 		});
-});
+		{
+			body: t.Object({
+				name: t.String({
+					minLength: 2,
+					maxLength: 50,
+				}),
+				email: t.String({
+					minLength: 6,
+					maxLength: 320,
+					format: "email",
+				}),
+				message: t.String({
+					minLength: 10,
+					maxLength: 500,
+				}),
+			}),
+		}
+	);
+	return app;
+};
+app.group("/api", apiController);
+app.get("/", () => Bun.file(join(staticRoot, "index.html")));
 
 app.listen(Number(port), () => {
 	console.log(`server listen on port ${port}`);

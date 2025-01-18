@@ -11,7 +11,7 @@ import "./card/card.scss";
 import "./features/features.scss";
 import "./socials/socials.scss";
 import "./form/form.scss";
-import { getBaseUrl } from "./base-url";
+
 import {
 	nameValidator,
 	emailValidator,
@@ -85,9 +85,7 @@ async function sendJSON(formNode, dataNames) {
 		return data;
 	}, {});
 
-	const baseUrl = getBaseUrl();
-
-	const response = await fetch(`${baseUrl}/api/feedback`, {
+	const response = await fetch(`/api/feedback`, {
 		method: "POST",
 		headers: { "Content-Type": "application/json" },
 		body: JSON.stringify(data),
