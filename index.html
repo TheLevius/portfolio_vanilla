@@ -10,8 +10,8 @@
 
 <body>
 	<div id="app">
-		<div class="menu" id="menu">
-			<button class="closer" id="closer">
+		<nav class="menu" id="menu" aria-label="Основное меню">
+			<button class="closer" id="closer" aria-label="Закрыть меню">
 				<svg class="closer__icon" width="29" height="29" viewBox="0 0 29 29" fill="currentUser"
 					xmlns="http://www.w3.org/2000/svg">
 					<path
@@ -28,7 +28,7 @@
 					<li class="menu__item"><a href="#contactsSection" class="menu__link">Контакты</a></li>
 				</ul>
 			</div>
-			<div class="socials socials--center">
+			<div class="socials socials--center" aria-label="Социальные сети">
 				<div class="socials socials--gap_15 socials--mv_10">
 					<a class="socials__item" href="https://facebook.com">
 						<svg class="socials__icon socials__icon--w_20" width="20" height="20" viewBox="0 0 30 30"
@@ -57,10 +57,10 @@
 					</a>
 				</div>
 			</div>
-		</div>
+		</nav>
 		<div class="overlay" id="overlay">&nbsp;</div>
-		<div class="section section--wallpaper_hero section--relative">
-			<button class="burger" id="burger">
+		<section class="section section--wallpaper_hero section--relative" aria-label="Главная часть">
+			<button class="burger" id="burger" aria-label="Открыть меню">
 				<svg class="burger__icon" width="36" height="21" viewBox="0 0 36 21" fill="currentColor"
 					xmlns="http://www.w3.org/2000/svg">
 					<path d="M0 9H36V12H0V9Z" />
@@ -81,20 +81,20 @@
 					</button>
 				</div>
 			</div>
-			<div class="section__aside-bar section__aside--turn_90">
+			<aside class="section__aside-bar section__aside--turn_90" aria-label="Социальные сети">
 				<div class="section__legend">
 					Социальные сети
 				</div>
 				<hr class="section__moulding" />
 				<div class="socials socials--gap_16">
-					<a class="socials__item" href="https://github.com">
+					<a class="socials__item" href="https://github.com" aria-label="GitHub">
 						<svg class="socials__icon socials__icon--w_20" width="20" height="20" viewBox="0 0 30 29"
 							fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 							<path
 								d="M15 -1.90735e-06C6.7125 -1.90735e-06 0 6.54251 0 14.6116C0 21.0686 4.2975 26.5443 10.2562 28.4748C11.0062 28.6123 11.2812 28.1601 11.2812 27.7722C11.2812 27.4253 11.2687 26.5058 11.2625 25.2878C7.09 26.1688 6.21 23.3275 6.21 23.3275C5.5275 21.6411 4.54125 21.1901 4.54125 21.1901C3.1825 20.2843 4.64625 20.3028 4.64625 20.3028C6.1525 20.4045 6.94375 21.8084 6.94375 21.8084C8.28125 24.0425 10.455 23.3969 11.3125 23.0239C11.4475 22.0785 11.8338 21.4354 12.2625 21.0699C8.93125 20.7043 5.43 19.4479 5.43 13.8496C5.43 12.2548 6.01125 10.9513 6.97375 9.929C6.805 9.55975 6.29875 8.07405 7.105 6.06173C7.105 6.06173 8.36125 5.67017 11.23 7.55982C12.43 7.23517 13.705 7.07409 14.98 7.06665C16.255 7.07409 17.53 7.23517 18.73 7.55982C21.58 5.67017 22.8362 6.06173 22.8362 6.06173C23.6425 8.07405 23.1362 9.55975 22.9862 9.929C23.9425 10.9513 24.5237 12.2548 24.5237 13.8496C24.5237 19.4627 21.0175 20.6981 17.68 21.0575C18.205 21.4961 18.6925 22.392 18.6925 23.7612C18.6925 25.7165 18.6737 27.2877 18.6737 27.7623C18.6737 28.1452 18.9362 28.6024 19.705 28.4562C25.7062 26.5381 30 21.0587 30 14.6116C30 6.54251 23.2837 -1.90735e-06 15 -1.90735e-06Z" />
 						</svg>
 					</a>
-					<a class="socials__item" href="https://instagram.com">
+					<a class="socials__item" href="https://instagram.com" aria-label="Instagram">
 						<svg class="socials__icon socials__icon--w_20" width="20" height="20" viewBox="0 0 30 30"
 							fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 							<path
@@ -105,7 +105,7 @@
 								d="M7.93673 6.93715C7.93673 6.38521 7.4893 5.93777 6.93736 5.93777C6.38542 5.93777 5.93799 6.38521 5.93799 6.93715C5.93799 7.48909 6.38542 7.93652 6.93736 7.93652C7.4893 7.93652 7.93673 7.48909 7.93673 6.93715Z" />
 						</svg>
 					</a>
-					<a class="socials__item" href="https://facebook.com">
+					<a class="socials__item" href="https://facebook.com" aria-label="Facebook">
 						<svg class="socials__icon socials__icon--w_20" width="20" height="20" viewBox="0 0 30 30"
 							fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 							<path
@@ -113,10 +113,10 @@
 						</svg>
 					</a>
 				</div>
-			</div>
-		</div>
+			</aside>
+		</section>
 
-		<div class="section" id="experienceSection">
+		<section class="section" id="experienceSection">
 			<div class="holder holder--bv_1">
 				<p class="bullet bullet--center section__item">Опыт</p>
 				<h1 class="section__header">
@@ -130,7 +130,7 @@
 						</div>
 						<div class="card features__item">
 							<div class="card__badge">
-								<div class="card__icon-holder">
+								<div class="card__icon-holder" aria-hidden="true">
 									<svg class="card__icon card__icon--university" width="21" height="25" viewBox="0 0 21 25"
 										fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 										<path
@@ -154,7 +154,7 @@
 						</div>
 						<div class="card features__item">
 							<div class="card__badge">
-								<div class="card__icon-holder">
+								<div class="card__icon-holder" aria-hidden="true">
 									<svg class="card__icon" width="25" height="24" viewBox="0 0 25 24" fill="currentColor"
 										xmlns="http://www.w3.org/2000/svg">
 										<path
@@ -188,7 +188,7 @@
 						</div>
 						<div class="card features__item">
 							<div class="card__badge">
-								<div class="card__icon-holder">
+								<div class="card__icon-holder" aria-hidden="true">
 									<svg class="card__icon" width="25" height="25" viewBox="0 0 25 25" fill="currentColor"
 										xmlns="http://www.w3.org/2000/svg">
 										<path
@@ -223,7 +223,7 @@
 						</div>
 						<div class="card features__item">
 							<div class="card__badge">
-								<div class="card__icon-holder">
+								<div class="card__icon-holder" aria-hidden="true">
 									<svg class="card__icon" width="22" height="25" viewBox="0 0 22 25" fill="currentColor"
 										xmlns="http://www.w3.org/2000/svg">
 										<path
@@ -254,11 +254,11 @@
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="section section--left" id="contactsSection">
+		</section>
+		<section class="section section--left" id="contactsSection" aria-label="Контакты">
 			<div class="holder holder--bv_1 holder--bb_1 holder--pb_40 holder--left">
 				<div class="section__contacts">
-					<div class="section__photo">
+					<div class="section__photo" aria-hidden="true">
 						&nbsp;
 					</div>
 					<div class="section__con">
@@ -270,7 +270,7 @@
 						<p class="section__text">
 							Любым удобным для вас способом:
 						</p>
-						<div class="socials socials--gap_20 socials--mv_10">
+						<div class="socials socials--gap_20 socials--mv_10" aria-label="Социальные сети">
 							<a class="socials__item" href="https://facebook.com">
 								<svg class="socials__icon socials__icon--w_30" width="30" height="30" viewBox="0 0 30 30"
 									fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -298,16 +298,17 @@
 							</a>
 						</div>
 						<p class="section__text">Или оставьте ваши данные и я сама вам напишу:</p>
-						<form class="form" id="feedback-form" action="/submit" method="POST" novalidate>
+						<form class="form" id="feedback-form" action="/submit" method="POST" novalidate
+							aria-label="Форма обратной связи">
 							<fieldset class="form__item form__item--flexible form__item--rm_25">
 								<legend class="form__legend"><label class="form__label" for="feedback-name">Имя:</label></legend>
 								<input class="form__text" type="text" id="feedback-name" name="name" placeholder="Ваше имя">
-								<div class="form__status form--error"></div>
+								<div class="form__status form--error" aria-live="polite"></div>
 							</fieldset>
 							<fieldset class="form__item form__item--flexible">
 								<legend class="form__legend"><label class="form__label" for="feedback-email">Email:</label></legend>
 								<input class="form__text" type="email" id="feedback-email" name="email" placeholder="Ваш email">
-								<div class="form__status form--error"></div>
+								<div class="form__status form--error" aria-live="polite"></div>
 							</fieldset>
 							<fieldset class="form__item">
 								<legend class="form__legend">
@@ -315,14 +316,14 @@
 								</legend>
 								<textarea class="form__textarea" id="feedback-message" name="message"
 									placeholder="Введите ваше сообщение" rows="5"></textarea>
-								<div class="form__status form--error"></div>
+								<div class="form__status form--error" aria-live="polite"></div>
 							</fieldset>
 							<label class="form__checkbox-group form__checkbox-group--order_1" for="feedback-agree">
 								<input class="form__checkbox" type="checkbox" id="feedback-agree" name="agree" required>
 								<div class="form__caption">
 									Я согласен(а) с <a class="form__link" href="#">политикой конфиденциальности</a>
 								</div>
-								<div class="form__status form--error"></div>
+								<div class="form__status form--error" aria-live="polite"></div>
 							</label>
 							<button class="button button--primary form__button form--vm-10" id="feedback-submit"
 								type="submit">Отправить
@@ -331,11 +332,8 @@
 					</div>
 				</div>
 			</div>
-
-		</div>
-
+		</section>
 	</div>
-
 	</div>
 	<script type="module" src="/src/main.js"></script>
 </body>
